@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Основи вебдоступності</title>
+
+  <style>
+    :focus {
+      outline: 3px solid #005fcc;
+      outline-offset: 2px;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background: #f2f2f2;
+      padding: 16px;
+    }
+
+    main {
+      padding: 16px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #000;
+      color: #fff;
+      padding: 8px;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      left: 8px;
+    }
+
+    section {
+      margin-bottom: 48px;
+    }
+
+    form div {
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">Перейти до основного змісту</a>
+
+<header>
+  <img src="#" alt="" />
+  <h1>Основи вебдоступності</h1>
+  <p>Семантична розмітка та доступний HTML</p>
+
+  <nav aria-label="Головна навігація">
+    <ul>
+      <li><a href="#home" aria-current="page">Головна</a></li>
+      <li><a href="#topic">Матеріал</a></li>
+      <li><a href="#contacts">Контакти</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section id="home">
+    <h2>Головна</h2>
+    <p>
+      Цей навчальний приклад демонструє правильний семантичний каркас
+      вебсторінки з урахуванням доступності, клавіатурної навігації
+      та допоміжних технологій.
+    </p>
+  </section>
+
+  <section id="topic">
+    <h2>Семантичний HTML</h2>
+
+    <p>
+      Семантичні HTML-теги описують зміст сторінки, а не лише її вигляд.
+      Вони допомагають читачам екрана, пошуковим системам та браузерам
+      коректно інтерпретувати структуру документа.
+    </p>
+
+    <figure>
+      <img src="#" alt="Схема семантичної структури вебсторінки">
+      <figcaption>
+        Приклад використання header, nav, main, section та footer
+      </figcaption>
+    </figure>
+  </section>
+
+  <section id="contacts">
+    <h2>Контакти</h2>
+
+    <form method="post">
+      <div>
+        <label for="name">Ім’я</label>
+        <input id="name" name="name" type="text" required>
+      </div>
+
+      <div>
+        <label for="email">Ел. пошта</label>
+        <input id="email" name="email" type="email" required>
+      </div>
+
+      <div>
+        <label for="phone">Телефон</label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          pattern="\+380\d{9}"
+          aria-describedby="phone-hint">
+        <small id="phone-hint">
+          Формат: +380XXXXXXXXX
+        </small>
+      </div>
+
+      <div>
+        <label for="message">Повідомлення</label>
+        <textarea
+          id="message"
+          name="message"
+          minlength="10"
+          aria-describedby="msg-hint"></textarea>
+        <small id="msg-hint">
+          Мінімум 10 символів
+        </small>
+      </div>
+
+      <button type="submit">Надіслати</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <nav aria-label="Навігація в підвалі">
+    <ul>
+      <li><a href="#home">Головна</a></li>
+      <li><a href="#contacts">Контакти</a></li>
+      <li><a href="#">Політика конфіденційності</a></li>
+    </ul>
+  </nav>
+
+  <p>© 2026 Основи вебдоступності</p>
+</footer>
+
+</body>
+</html>
